@@ -461,7 +461,7 @@ void setup() {
 }
 
 void loop() {
-  //heating();
+  heating();
   decarb();
   infusion();
   finished();
