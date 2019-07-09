@@ -344,9 +344,9 @@ void decarb() {
   int decarb_time_sum = 60 * decarb_time_h + decarb_time_min;
   cycleScreen(cycle);
   while (RTC_time_sum < decarb_time_sum) {
-    if (temp >= temp_high && state == true)
+    if (temp > temp_high && state == true)
       relayDrive(OFF);
-    else if (temp <= temp_low && state == false)
+    else if (temp < temp_low && state == false)
       relayDrive(ON);
     myRTC.updateTime();
     RTC_time_sum = 60 * myRTC.hours + myRTC.minutes;
@@ -372,9 +372,9 @@ void infusion() {
   int time_total_sum = 60 * hour_total + minute_total;
   cycleScreen(cycle);
   while (RTC_time_sum < time_total_sum) {
-    if (temp >= temp_high && state == true)
+    if (temp > temp_high && state == true)
       relayDrive(OFF);
-    else if (temp <= temp_low && state == false)
+    else if (temp < temp_low && state == false)
       relayDrive(ON);
     myRTC.updateTime();
     RTC_time_sum = 60 * myRTC.hours + myRTC.minutes;
